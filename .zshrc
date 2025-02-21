@@ -56,6 +56,19 @@ export EDITOR=nvim
 export PATH=/home/cameron/.local/bin:$PATH
 source "$HOME/.cargo/env"
 
+# Commands
+gip() {
+  ssh 192.168.1.30 "getent hosts $1.local | awk '{print \$1}'"
+}
+
+sandvik() {
+  local ip=$(gip sandvik 2>/dev/null)
+  if [[ -n "$ip" ]]; then
+    ssh -X -l sandvik "$ip"
+  else
+    echo "Error: Unable to resolve IP for sandvik" >&2
+  fi
+}
 
 # Aliases
 alias ls='ls -AlhF --color=auto'
@@ -64,4 +77,10 @@ alias jet="ssh 192.168.1.77 -X -l cam"
 alias heidifs="sshfs -o follow_symlinks -o allow_root cameron@192.168.1.30:/ ~/server"
 alias win="ssh 10.0.0.95 -l GETTest"
 alias imcat="wezterm imgcat"
+# alias cd="z"
+
+
+
+# Initialise zoxide
+eval "$(zoxide init zsh)"
 
