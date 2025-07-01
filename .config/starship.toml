@@ -1,0 +1,90 @@
+palette = "gruvbox-material"
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$line_break\
+$python\
+$rust\
+$character"""
+
+right_format = """$jobs"""
+
+[directory]
+before_repo_root_style = "orange"
+repo_root_style = "aqua"
+repo_root_format = '[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+truncation_length = 3
+truncate_to_repo = true
+format = '[$read_only]($read_only_style)[$path]($style) '
+style = 'aqua'
+read_only = "󰌾 "
+read_only_style = 'red'
+truncation_symbol = '…/'
+home_symbol = '~'
+use_os_path_sep = true
+
+[character]
+format = '$symbol '
+success_symbol = '[❯](bold green)'
+error_symbol = '[❯](bold red)'
+vimcmd_symbol = '[❮](bold green)'
+vimcmd_replace_one_symbol = '[❮](bold purple)'
+vimcmd_replace_symbol = '[❮](bold purple)'
+vimcmd_visual_symbol = '[❮](bold yellow)'
+disabled = false
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+symbol = " "
+
+[git_status]
+style = "orange"
+
+[python]
+# format = '[$symbol](yellow)[(\($virtualenv\) )]($style)'
+format = '[(\($virtualenv\) )]($style)[$symbol](yellow)'
+symbol = " "
+style = "bg_visual_yellow"
+
+[rust]
+format = '[$symbol]($style)'
+symbol = "󱘗 "
+style = '#ff0013'
+
+
+[palettes.gruvbox-material]
+bg_dim = '#1b1b1b'
+bg0 = '#282828'
+bg1 = '#32302f'
+bg2 = '#32302f'
+bg3 = '#45403d'
+bg4 = '#45403d'
+bg5 = '#5a524c'
+bg_statusline1 = '#32302f'
+bg_statusline2 = '#3a3735'
+bg_statusline3 = '#504945'
+bg_diff_green = '#34381b'
+bg_visual_green = '#3b4439'
+bg_diff_red = '#402120'
+bg_visual_red = '#4c3432'
+bg_diff_blue = '#0e363e'
+bg_visual_blue = '#374141'
+bg_visual_yellow = '#4f422e'
+bg_current_word = '#3c3836'
+fg0 = '#d4be98'
+fg1 = '#ddc7a1'
+red = '#ea6962'
+orange = '#e78a4e'
+yellow = '#d8a657'
+green = '#a9b665'
+aqua = '#89b482'
+blue = '#7daea3'
+purple = '#d3869b'
+bg_red = '#ea6962'
+bg_green = '#a9b665'
+bg_yellow = '#d8a657'
