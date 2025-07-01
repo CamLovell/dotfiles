@@ -1,0 +1,100 @@
+[user]
+	name = Cameron Lovell
+	email = cameron.e.lovell@gmail.com
+	; email = cameron.lovell@roboticsystems.com.au
+
+; [includeIf "gitdir:~/dev/personal/"]
+;     path = ~/.gitconfig-personal
+; [includeIf "gitdir:~/.config/"]
+;     path = ~/.gitconfig-personal
+; [includeIf "gitdir:~/dotfiles/"]
+;     path = ~/.gitconfig-personal
+[includeIf "hasconfig:remote.*.url:https://github.com/Robotic-Systems/**"]
+	path = ~/.gitconfig-rs
+
+[alias]
+    st = status --short --branch
+    logg = log --graph --all --decorate --color --pretty=format:'%C(auto)%h %d %s %C(blue)(%cn)%C(reset)'
+[core]
+	editor = nvim
+    compression = 9
+    whitespace = errort
+    preloadIndex = true
+
+[advice]
+    addEmptyPathSpec = false
+    pushNonFastForward = false
+    statusHints = false
+
+[column]
+    ui = auto
+
+[init]
+	defaultBranch = main
+
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[merge]
+	tool = nvimdiff
+
+[diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = copies
+
+[push]
+    autoSetupRemote = true
+    followTags = true
+
+[fetch]
+    ; prune = true
+    ; pruneTags = true
+    ; followTags = true
+
+[status]
+    showUntrackedFiles = all
+    branch = true
+    showStash = true
+
+[pull]
+    rebase = true
+
+[fetch]
+    prune = true
+    ; pruneTags = true
+    ; followTags = true
+
+[rebase]
+    autoStash = true
+    autosquash = true
+    updateRefs = true
+
+[rerere]
+    enabled = true
+    autoupdate = true
+
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = version:refname
+
+[log]
+    abbrevCommit = true
+
+[help]
+    autocorrect = prompt
+
+[commit]
+    verbose = true
+
+

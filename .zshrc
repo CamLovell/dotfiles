@@ -7,9 +7,9 @@ fi
 
 # Set up the prompt
 
-autoload -Uz promptinit
-promptinit
-prompt adam1
+# autoload -Uz promptinit
+# promptinit
+# prompt adam1
 
 setopt histignorealldups sharehistory
 
@@ -42,11 +42,16 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Powerlevel10k prompt
+# source ~/powerlevel10k/powerlevel10k.zsh-theme
+#
+# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Starship prompt
+eval "$(starship init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -61,26 +66,36 @@ gip() {
   ssh 192.168.1.30 "getent hosts $1.local | awk '{print \$1}'"
 }
 
-sandvik() {
-  local ip=$(gip sandvik 2>/dev/null)
+sshl() {
+  local ip=$(gip $1 2>/dev/null)
   if [[ -n "$ip" ]]; then
-    ssh -X -l sandvik "$ip"
+    ssh -X -l $1 "$ip"
   else
-    echo "Error: Unable to resolve IP for sandvik" >&2
+    echo "Error: Unable to resolve IP for $1" >&2
   fi
 }
 
+# ssht() {
+#     ssh -X $1@$(tailscale status | grep $1 | awk '{print $1}')
+# }
+
+
 # Aliases
-alias ls='ls -AlhF --color=auto'
+# alias ls='ls -AlhF --color=auto'
+alias ls='eza -AlhF'
 alias heidi="ssh 192.168.1.30 -X"
 alias jet="ssh 192.168.1.77 -X -l cam"
 alias heidifs="sshfs -o follow_symlinks -o allow_root cameron@192.168.1.30:/ ~/server"
 alias win="ssh 10.0.0.95 -l GETTest"
 alias imcat="wezterm imgcat"
-# alias cd="z"
+alias tmux="tmux -u"
+alias cat="batcat"
+alias cd="z"
+alias reset-screencast="kill $(ps aux | grep gjs | grep Screencast | grep -v 'grep' | awk '{print $2}')"
 
 
 
 # Initialise zoxide
 eval "$(zoxide init zsh)"
+
 
