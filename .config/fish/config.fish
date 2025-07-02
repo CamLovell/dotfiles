@@ -41,6 +41,7 @@ alias imcat="wezterm imgcat"
 alias tmux="tmux -u"
 alias cat="batcat"
 alias cd="z"
+alias grep="rg"
 alias reset-screencast="kill $(ps aux | grep gjs | grep Screencast | grep -v 'grep' | awk '{print $2}')"
 
 # NVM
