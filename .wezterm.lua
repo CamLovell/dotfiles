@@ -1,7 +1,4 @@
--- Pull in the wezterm API
 local wezterm = require("wezterm")
-
--- This will hold the configuration.
 local config = wezterm.config_builder()
 
 
@@ -24,7 +21,7 @@ config.enable_scroll_bar = false
 
 -- Title bar etc
 -- config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
-config.window_decorations = "RESIZE"
+-- config.window_decorations = "RESIZE"
 
 config.audible_bell = "Disabled"
 
@@ -37,5 +34,5 @@ config.audible_bell = "Disabled"
 -- }
 
 config.adjust_window_size_when_changing_font_size = false
--- and finally, return the configuration to wezterm
+
 return config
