@@ -1,0 +1,212 @@
+@define-color background #282828;
+@define-color background-light #3c3836;
+@define-color foreground #ebdbb2;
+@define-color black #32302f;
+@define-color red #cc241d;
+@define-color green #98971a;
+@define-color yellow #d79921;
+@define-color blue #458588;
+@define-color magenta #b16286;
+@define-color cyan #689d6a;
+@define-color white #ebdbb2;
+@define-color orange #d65d0e;
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FiraCodeNerdFont, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14;
+}
+
+.modules-left {
+    background-color: @background;
+    border-radius: 99;
+    padding: 2px;
+}
+
+/* .modules-right { */
+/*     background-color: @background; */
+/*     border-radius: 99; */
+/*     padding: 2px; */
+/* } */
+
+window#waybar {
+    background-color: transparent;
+    color: @white; /* Default text colour */
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+button {
+    border: none;
+    border-radius: 999;
+}
+
+#workspaces button {
+    /* margin: 4px 0px 0px 4px; */
+    padding: 0 5px;
+    margin-left: 4px;
+    background-color: @background-light;
+    color: @white
+    /* rounding:  */
+}
+
+/* No left margin for left most workspace number */
+#workspaces button:first-child {
+    margin-left: 0;
+}
+
+
+#workspaces button:hover {
+    background-color: alpha(@blue, 0.5);
+    /* color: @onPrimaryContainer */
+}
+
+#workspaces button.active {
+    background-color: @blue;
+    /* color: @onPrimary */
+    /* box-shadow: 3px 3px @onBackground; */
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+}
+
+#workspaces {
+    /* margin: 4px 4px; */
+    padding: 4px 4px;
+    /* background-color: @onBackground; */
+
+}
+
+#clock {
+    color: @white;
+    margin: 0px 8px;
+    background-color: @background;
+    border-radius: 99;
+    padding: 2px 8px 0px 8px;
+}
+
+#tray,
+#info,
+#control {
+    background-color: @background;
+    color: @white;
+    border-radius: 99px;
+    padding: 0px 6px;
+}
+
+#tray{
+    padding: 0px 10px;
+}
+
+/* Info group elements */
+#pulseaudio,
+#battery,
+#network,
+#wireplumber,
+/* CSS is weird, these bluetooth (not hover) settings will be used for the above too */
+#bluetooth {
+    background-color: transparent;
+    color: @white;
+    border-radius: 99;
+    margin: 4px 0px;
+    padding:0px 6px;
+    font-size: 14
+}
+
+#bluetooth:hover {
+    color: @cyan
+}
+
+@keyframes blink {
+    0%{
+        color: @white;
+        background-color: @red;
+    }
+    50%{
+        color: @red;
+        background-color: @background;
+    }
+}
+
+#battery.critical:not(.charging) {
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: steps(2);
+    animation-iteration-count: infinite;
+}
+#battery.charging, #battery.plugged {
+    color: @green;
+}
+#battery.full {
+    color: @green
+}
+#battery:hover {
+    color: @cyan
+}
+
+#network {
+    margin-right: 2px
+}
+#network.disconnected {
+    background-color: @red;
+}
+#network:hover {
+    color: @cyan
+}
+
+#pulseaudio.muted {
+    color: @red;
+}
+#pulseaudio:hover {
+    color: @cyan;
+}
+
+/* Control group elements */
+#idle_inhibitor {
+    background-color: transparent;
+    padding: 0 4 0 6;
+    color: @white;
+    border-radius: 99;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#idle_inhibitor:hover {
+    color: @orange;
+}
+#idle_inhibitor:hover.activated {
+    color: @white;
+}
+#idle_inhibitor.activated {
+    background-color: @orange;
+    color: @black;
+}
+
+#custom-power{
+    background-color: @magenta;
+    color: @black;
+    border-radius: 99;
+    margin-left: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0 12 0 8;
+}
+#custom-power:hover {
+    color: @white;
+}
+
+/* #tray { */
+/*     background-color: transparent; */
+/* } */
+/**/
+/* #tray > .passive { */
+/*     -gtk-icon-effect: dim; */
+/* } */
+/**/
+/* #tray > .needs-attention { */
+/*     -gtk-icon-effect: highlight; */
+/*     background-color: @red; */
+/* } */
+
+
+

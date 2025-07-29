@@ -30,6 +30,12 @@ starship init fish | source
 # Init zoxide
 zoxide init fish | source
 
+set distro (grep '^ID=' /etc/os-release | cut -d= -f2 | tr -d '"')
+if test "$distro" = "arch"
+    alias cat="bat"
+else
+    alias cat="batcat"
+end
 
 # Aliases
 alias ls='eza -AlhF'
@@ -39,7 +45,6 @@ alias heidifs="sshfs -o follow_symlinks -o allow_root cameron@192.168.1.30:/ ~/s
 alias win="ssh 10.0.0.95 -l GETTest"
 alias imcat="wezterm imgcat"
 alias tmux="tmux -u"
-alias cat="batcat"
 alias cd="z"
 alias grep="rg"
 alias reset-screencast="kill $(ps aux | grep gjs | grep Screencast | grep -v 'grep' | awk '{print $2}')"
