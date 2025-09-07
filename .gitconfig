@@ -15,6 +15,7 @@
 [alias]
     st = status --short --branch
     logg = log --graph --all --decorate --color --pretty=format:'%C(auto)%h %d %s %C(blue)(%cn)%C(reset)'
+	auth = !/home/cameron/dev/personal/git-auth/target/debug/git-auth
 [core]
 	editor = nvim
     compression = 9
@@ -32,9 +33,10 @@
 [init]
 	defaultBranch = main
 
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+[credential]
+	helper = !/home/cameron/dev/personal/git-auth/target/debug/git-auth
+	usehttppath = true
+; 	helper = !/usr/bin/gh auth git-credential
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
@@ -69,7 +71,7 @@
     rebase = true
 
 [fetch]
-    prune = true
+	prune = true
     ; pruneTags = true
     ; followTags = true
 

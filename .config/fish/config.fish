@@ -32,13 +32,13 @@ zoxide init fish | source
 
 set distro (grep '^ID=' /etc/os-release | cut -d= -f2 | tr -d '"')
 if test "$distro" = "arch"
-    alias cat="bat"
+    alias cat="bat -p"
 else
-    alias cat="batcat"
+    alias cat="batcat -p"
 end
 
 # Aliases
-alias ls='eza -AlhF'
+alias ls='eza -AlhF --icons'
 alias heidi="ssh 192.168.1.30 -X"
 alias jet="ssh 192.168.1.77 -X -l cam"
 alias heidifs="sshfs -o follow_symlinks -o allow_root cameron@192.168.1.30:/ ~/server"
@@ -48,6 +48,10 @@ alias tmux="tmux -u"
 alias cd="z"
 alias grep="rg"
 alias reset-screencast="kill $(ps aux | grep gjs | grep Screencast | grep -v 'grep' | awk '{print $2}')"
+alias ssh='ssh -t -o SendEnv=TERM -o SetEnv="TERM=xterm-256color" -X'
 
+function ssht -a name
+    ssh -X $name@$(tailscale status | grep $name | awk '{print $1}')
+end
 # NVM
 nvm use latest &> /dev/null

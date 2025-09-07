@@ -116,6 +116,12 @@ button {
 #bluetooth:hover {
     color: @cyan
 }
+#bluetooth.off {
+    color: @red
+}
+/* #bluetooth.connected { */
+/*     color: @green */
+/* } */
 
 @keyframes blink {
     0%{
