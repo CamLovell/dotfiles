@@ -99,3 +99,5 @@ alias reset-screencast="kill $(ps aux | grep gjs | grep Screencast | grep -v 'gr
 eval "$(zoxide init zsh)"
 
 
+
+. "$HOME/.local/share/../bin/env"

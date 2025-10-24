@@ -15,7 +15,7 @@
 [alias]
     st = status --short --branch
     logg = log --graph --all --decorate --color --pretty=format:'%C(auto)%h %d %s %C(blue)(%cn)%C(reset)'
-	auth = !/home/cameron/dev/personal/git-auth/target/debug/git-auth
+	auth = !/home/cameron/tools/git-auth/target/debug/git-auth
 [core]
 	editor = nvim
     compression = 9
@@ -34,7 +34,7 @@
 	defaultBranch = main
 
 [credential]
-	helper = !/home/cameron/dev/personal/git-auth/target/debug/git-auth
+	helper = !/home/cameron/tools/git-auth/target/debug/git-auth
 	usehttppath = true
 ; 	helper = !/usr/bin/gh auth git-credential
 
