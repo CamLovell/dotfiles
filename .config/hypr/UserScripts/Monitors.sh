@@ -13,11 +13,14 @@ mapfile -t monitors < <(
 
 echo "# Auto-generated monitor definitsions by UserScripts/Monitors.sh" > "$MONITORS_CONFIG"
 echo "\$laptop = eDP-1" >> "$MONITORS_CONFIG"
-echo "\$horizontal = ${monitors[0]}" >> "$MONITORS_CONFIG"
-echo "\$vertical = ${monitors[1]}" >> "$MONITORS_CONFIG"
 
-LID_STATE=$(awk -F': *' '{print $2}' /proc/acpi/button/lid/LID0/state)
-if [ $LID_STATE = 'closed' ]; then
+if [ "${#monitors[@]}" -eq 2 ]; then
+    echo "\$horizontal = ${monitors[0]}" >> "$MONITORS_CONFIG"
+    echo "\$vertical = ${monitors[1]}" >> "$MONITORS_CONFIG"
+fi
+
+LID_STATE=$(awk -F': *' '{print $2}' /proc/acpi/button/lid/LID0/state 2>/dev/null)
+if [ "$LID_STATE" = 'closed' ]; then
     echo "\$lid_shut = true" >> "$MONITORS_CONFIG"
 fi
 

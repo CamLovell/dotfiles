@@ -11,7 +11,7 @@
 #          ./Dropdown.sh "alacritty --working-directory /home/user"
 
 DEBUG=false
-SPECIAL_WS="special:scratchpad"
+SPECIAL_WS="special:drop"
 ADDR_FILE="/tmp/dropdown_terminal_addr"
 
 # Dropdown size and position configuration (percentages)

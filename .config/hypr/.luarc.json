@@ -1,0 +1,12 @@
+{
+  "workspace": {
+    "library": [
+      "/home/cameron/.config/hypr/lua",
+      "/home/cameron/.config/hypr",
+      "/usr/share/hypr/stubs"
+    ]
+  },
+  "diagnostics": {
+    "globals": ["hl", "lib"]
+  }
+}
