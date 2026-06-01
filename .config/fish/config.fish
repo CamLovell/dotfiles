@@ -67,4 +67,6 @@ nvm use latest &> /dev/null
 
 fish_add_path $HOME/.local/bin $HOME/.krew/bin
 
-op completion fish | source
+if type -q op
+    op completion fish | source
+end
