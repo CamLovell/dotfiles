@@ -46,6 +46,8 @@ font-feature = -calt, -liga, -diag
 
 # Theme
 theme=Gruvbox Material Dark
+palette = 0=#000000
+minimum-contrast=1
 
 # Use fish when using ghostty
 command=fish

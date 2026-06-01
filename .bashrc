@@ -132,4 +132,3 @@ alias cat="batcat -p"
 eval "$(starship init bash)"
 
 
-. "$HOME/.local/share/../bin/env"

@@ -11,6 +11,8 @@
 ;     path = ~/.gitconfig-personal
 [includeIf "hasconfig:remote.*.url:https://github.com/Robotic-Systems/**"]
 	path = ~/.gitconfig-rs
+[includeIf "hasconfig:remote.*.url:https://cameronlovell1@bitbucket.org/rocketboots/**"]
+	path = ~/.gitconfig-rb
 
 [alias]
     st = status --short --branch
@@ -21,6 +23,7 @@
     compression = 9
     whitespace = errort
     preloadIndex = true
+    excludesFile = "/home/cameron/.gitignore"
 
 [advice]
     addEmptyPathSpec = false

@@ -4,14 +4,9 @@ status --is-interactive; or return
 # Apply theme
 # theme_gruvbox
 
-# vi key bindings
-# fish_vi_key_bindings
-fish_default_key_bindings
-
-
 # Use neovim as editor
-set -Ux EDITOR nvim
-set -Ux VISUAL nvim
+set -gx EDITOR nvim
+set -gx VISUAL nvim
 
 # Starship prompt stuff
 # function starship_transient_rprompt_func
@@ -37,21 +32,39 @@ else
     alias cat="batcat -p"
 end
 
-# Aliases
+#========== Aliases ==================#
+# General
 alias ls='eza -AlhF --icons'
-alias heidi="ssh 192.168.1.30 -X"
-alias jet="ssh 192.168.1.77 -X -l cam"
-alias heidifs="sshfs -o follow_symlinks -o allow_root cameron@192.168.1.30:/ ~/server"
-alias win="ssh 10.0.0.95 -l GETTest"
-alias imcat="wezterm imgcat"
 alias tmux="tmux -u"
 alias cd="z"
 alias grep="rg"
-alias reset-screencast="kill $(ps aux | grep gjs | grep Screencast | grep -v 'grep' | awk '{print $2}')"
-alias ssh='ssh -t -o SendEnv=TERM -o SetEnv="TERM=xterm-256color" -X'
+
+# Ansible
+alias ansible-deploy="ansible-playbook infrastructure/ansible/deploy.yml -e @infrastructure/config.yaml"
+alias ansible-teardown="ansible-playbook infrastructure/ansible/teardown.yml -e @infrastructure/config.yaml"
+
+# Python dev
+alias py-dev="source ~/dev/env/python-dev/bin/activate.fish"
+
+# K8s
+alias decode="jq '.data | map_values(@base64d)'"
+
+function get-deployed-versions -a namespace
+    kubectl -n $namespace get pods -o yaml | awk -F'[/:]' '/image: rocketboots/ {print $(NF-1) " -> " $NF}' | sort -u
+end
+
 
 function ssht -a name
     ssh -X $name@$(tailscale status | grep $name | awk '{print $1}')
 end
+
+function clone -a repo
+    git clone "https://cameronlovell1@bitbucket.org/rocketboots/$repo.git" ~/dev/src/$repo
+    cd ~/dev/src/$repo
+end
 # NVM
 nvm use latest &> /dev/null
+
+fish_add_path $HOME/.local/bin $HOME/.krew/bin
+
+op completion fish | source
