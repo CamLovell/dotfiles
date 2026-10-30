@@ -5,7 +5,7 @@
 ---@type Defaults
 local M = {
   term = "ghostty",
-  files = "nemo"
+  files = os.execute("which nemo") and "nemo" or "nautilus"
 }
 
 return M

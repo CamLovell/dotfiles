@@ -19,6 +19,7 @@ require 'core.options'
 -- Install lazy and all the plugins
 require 'core.lazy'
 require 'core.lsp'
+require('core.icons').setup()
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`

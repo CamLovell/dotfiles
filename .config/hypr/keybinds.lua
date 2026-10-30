@@ -11,6 +11,7 @@ lib.hypr.bind({ "SUPER", "T" }, lib.defaults.term)
 lib.hypr.bind({ "SUPER", "F" }, lib.defaults.files)
 lib.hypr.bind({ "SUPER", "B" }, "xdg-open https://")
 lib.hypr.bind({ "SUPER", "O" }, "obsidian")
+lib.hypr.bind({ "SUPER", "C" }, "cursor")
 
 -- Operations
 lib.hypr.bind({ "CTRL", "ALT", "L" }, "loginctl lock-session")
@@ -56,7 +57,6 @@ lib.hypr.bind({ "SUPER", "CTRL", "comma" }, hl.dsp.window.move({ workspace = "-1
 lib.hypr.bind({ "SUPER", "CTRL", "period" }, hl.dsp.window.move({ workspace = "+1", follow = false }))
 
 lib.hypr.bind({ "ALT", "tab" }, hl.dsp.window.cycle_next())
-lib.hypr.bind({ "ALT", "tab" }, hl.dsp.window.bring_to_top())
 
 lib.hypr.bind({ "SUPER", "mouse:272" }, hl.dsp.window.drag(), { mouse = true })
 lib.hypr.bind({ "SUPER", "mouse:273" }, hl.dsp.window.resize(), { mouse = true })

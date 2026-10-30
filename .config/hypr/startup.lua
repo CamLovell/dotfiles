@@ -2,7 +2,7 @@ local startup_apps = {
   "hyprpaper",
   "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
   "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
-  -- lib.path.home .. "/.config/hypr/scripts/Dropterminal.sh" .. "ghostty &",
+  "gnome-keyring-daemon --start --components=secrets",
   lib.path.hypr_script("Polkit.sh"),
   "nm-applet --indicator",
   "swaync",
@@ -11,10 +11,9 @@ local startup_apps = {
   "waybar",
   "wl-paste --type text --watch cliphist store",
   "wl-paste --type image --watch cliphist store",
-  lib.path.user_script("RainbowBorders.sh"),
   "hypridle",
-  -- lib.path.hypr_script("PortalHyprland.sh"),
-  "fc-cache"
+  "fc-cache",
+  "1password --silent"
 }
 
 hl.on("hyprland.start", function()

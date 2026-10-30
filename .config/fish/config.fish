@@ -23,7 +23,7 @@ starship init fish | source
 # enable_transience
 
 # Init zoxide
-zoxide init fish | source
+zoxide init fish | sed 's,\(string.*\) <\$__fish_data_dir/functions/cd.fish,status get-file functions/cd.fish | \1,' | source
 
 set distro (grep '^ID=' /etc/os-release | cut -d= -f2 | tr -d '"')
 if test "$distro" = "arch"
@@ -49,8 +49,19 @@ alias py-dev="source ~/dev/env/python-dev/bin/activate.fish"
 # K8s
 alias decode="jq '.data | map_values(@base64d)'"
 
+# Agent
+alias plan="agent --plan 'plan implementation'"
+
+# Git ssh migration
+alias git-ssh="git remote get-url origin | awk -F/ '{print \$NF}' | xargs -I {} git remote set-url origin git@ssh.bitbucket.org:rocketboots/{}"
+
+
 function get-deployed-versions -a namespace
-    kubectl -n $namespace get pods -o yaml | awk -F'[/:]' '/image: rocketboots/ {print $(NF-1) " -> " $NF}' | sort -u
+    if test $namespace = "acceptance"; or string match -q "*-dev" $namespace
+        kubectl --context rb-syd -n $namespace get pods -o yaml | awk -F'[/:]' '/image: rocketboots/ {print $(NF-1) " -> " $NF}' | sort -u
+    else    
+        kubectl --context rb-wdc -n $namespace get pods -o yaml | awk -F'[/:]' '/image: rocketboots/ {print $(NF-1) " -> " $NF}' | sort -u
+    end
 end
 
 

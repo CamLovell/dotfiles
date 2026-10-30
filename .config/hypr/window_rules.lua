@@ -8,7 +8,7 @@ hl.window_rule({ match = { class = "^(Brave-browser(-beta|-dev|-unstable)?)$" },
 hl.window_rule({ match = { class = "^([Tt]horium-browser|[Cc]achy-browser)$" }, tag = "+browser" })
 hl.window_rule({ match = { class = "^(app.zen_browser.zen|zen-alpha|zen)$" }, tag = "+browser" })
 hl.window_rule({
-  match = { class = "^(swaync-control-center|swaync-notification-window|swaync-client|class)$" },
+  match = { class = "^(swaync-control-center|swaync-notification-window|swaync-client)$" },
   tag =
   "+notif"
 })
@@ -67,7 +67,6 @@ hl.window_rule({ match = { class = "^(eog|org.gnome.Loupe)$" }, tag = "+viewer" 
 -- Management Rules
 hl.window_rule({ match = { tag = "multimedia_video*" }, no_blur = true, opacity = 1.0 })
 hl.window_rule({ match = { tag = "KooL_Cheat*" }, center = true, size = { "(monitor_w*0.65)", "(monitor_h*0.9)" } })
-hl.window_rule({ match = { class = "(hunar)", title = "negative:(.*[Tt]hunar.*)" }, center = true })
 hl.window_rule({ match = { title = "^(ROG Control)$" }, center = true })
 hl.window_rule({ match = { tag = "KooL-Settings*" }, center = true })
 hl.window_rule({ match = { title = "^(Keybindings)$" }, center = true })
@@ -92,12 +91,6 @@ hl.window_rule({
   pin = true
 })
 hl.window_rule({
-  match = { title = "^(SDDM Background)$" },
-  float = true,
-  center = true,
-  size = { "(monitor_w*0.16)", "(monitor_h*0.12)" }
-})
-hl.window_rule({
   match = { title = "^(Add Folder to Workspace)$" },
   float = true,
   center = true,
@@ -114,7 +107,7 @@ hl.window_rule({
   float = true,
   size = { "(monitor_w*0.7)", "(monitor_h*0.6)" }
 })
-hl.window_rule({ match = { tag = "KooL-Cheat*" }, float = true })
+hl.window_rule({ match = { tag = "KooL_Cheat*" }, float = true })
 
 -- Actually Mine
 hl.window_rule({ match = { class = "slack" }, workspace = 1 })

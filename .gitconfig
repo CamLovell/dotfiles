@@ -16,8 +16,9 @@
 
 [alias]
     st = status --short --branch
-    logg = log --graph --all --decorate --color --pretty=format:'%C(auto)%h %d %s %C(blue)(%cn)%C(reset)'
+    logg = log --graph --all --decorate --color --date=human --pretty=format:'%C(auto)%h %s %d %C(blue)(%cn) %C(magenta)(%ad)%C(reset)'
 	auth = !/home/cameron/tools/git-auth/target/debug/git-auth
+
 [core]
 	editor = nvim
     compression = 9
