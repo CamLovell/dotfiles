@@ -1,0 +1,45 @@
+style: [Dark] Half-Moon.css
+config: [TOP] Default
+
+style: [Colorful] Rainbow Spectrum.css
+config: [TOP] Minimal - Long
+
+style: [Extra] EverForest.css
+config: [TOP] Minimal - Long
+
+style: [Extra] Mauve.css
+config: [TOP] Minimal - Long
+
+style: [Extra] ML4W starter.css
+config: [TOP] Minimal - Long
+
+style: [Extra] Modern-Combined - Transparent.css
+config: [TOP] Minimal - Long
+
+style: [Extra] Neon Circuit.css
+config: [TOP] Minimal - Long
+
+style: [Rainbow] RGB Bordered.css
+config: [TOP] Minimal - Long
+
+style: [Transparent] Crystal Clear.css
+config: [TOP] Minimal - Long
+
+style: [Wallust Bordered] Chroma Simple.css
+config: [TOP] Minimal - Long
+
+style: [Catppuccin] Mocha.css
+config: [TOP] Minimal - Long
+
+style: [Rainbow] RGB Bordered.css
+config: [TOP] Everforest
+
+style: [Rainbow] RGB Bordered.css
+config: [TOP] Simple
+
+style: [Rainbow] RGB Bordered.css
+config: [TOP] 0-Ja-0
+
+style: [Colorful] Rainbow Spectrum.css
+config: [TOP] Simple
+
